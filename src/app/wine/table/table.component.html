@@ -1,0 +1,73 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>
+        Name
+        <button
+          (click)="onChangeSortCriteria('name')"
+          class="btn btn-link text-info"
+        >
+          <i class="fas fa-sort"></i>
+        </button>
+      </th>
+      <th>
+        Year
+        <button
+          (click)="onChangeSortCriteria('year')"
+          class="btn btn-link text-info"
+        >
+          <i class="fas fa-sort"></i>
+        </button>
+      </th>
+      <th>
+        Grapes
+        <button
+          (click)="onChangeSortCriteria('grapes')"
+          class="btn btn-link text-info"
+        >
+          <i class="fas fa-sort"></i>
+        </button>
+      </th>
+      <th>
+        Country
+        <button
+          (click)="onChangeSortCriteria('country')"
+          class="btn btn-link text-info"
+        >
+          <i class="fas fa-sort"></i>
+        </button>
+      </th>
+      <th>
+        Region
+        <button
+          (click)="onChangeSortCriteria('region')"
+          class="btn btn-link text-info"
+        >
+          <i class="fas fa-sort"></i>
+        </button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let wine of wines">
+      <td>{{ wine.name }}</td>
+      <td>{{ wine.year }}</td>
+      <td>{{ wine.grapes }}</td>
+      <td>{{ wine.country }}</td>
+      <td>{{ wine.region }}</td>
+      <td>
+        <button
+          class="btn btn-link text-secondary"
+          [routerLink]="['/wines/', wine._id]"
+        >
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+      </td>
+      <td>
+        <button class="btn btn-link text-danger" (click)="onDelete(wine._id)">
+          <i class="fas fa-times"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
